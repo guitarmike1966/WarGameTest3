@@ -8,10 +8,10 @@
 
 import Cocoa
 
-let MaxRows = 12
-let MaxCols = 18
-let CellHeight: CGFloat = 90
-let CellWidth: CGFloat = CellHeight * 0.865
+let MaxRows = 20
+let MaxCols = 24
+let CellHeight: CGFloat = 60
+let CellWidth: CGFloat = CellHeight * 0.866
 let Padding: CGFloat = 20
 
 let SelectColor = NSColor.white
@@ -53,12 +53,12 @@ class ViewController: NSViewController {
 
         for y in 0..<MaxRows {
             for x in 0..<MaxCols {
-                var newX = Padding + (CGFloat(x) * (CellWidth * 0.98))
+                var newX = Padding + (CGFloat(x) * (CellWidth * 1.0))
                 if (y % 2 == 1) {
-                    newX = newX + (CellWidth / 2) - 1
+                    newX = newX + (CellWidth / 2)
                 }
 
-                let newY = Padding + (CGFloat(y) * ((CellHeight * 0.74)))
+                let newY = Padding + (CGFloat(y) * ((CellHeight * 0.7486)))
 
                 mainBoard.rows[y].cells[x].view.frame = NSRect(x: newX, y: newY, width: CellWidth, height: CellHeight)
                 mainBoard.rows[y].cells[x].view.tag = (y * 1000) + x
@@ -99,8 +99,14 @@ class ViewController: NSViewController {
                     mainBoard.rows[y].cells[x].deselectCell()
                 }
                 else {
-                    mainBoard.clearHighlight()
-                    mainBoard.rows[y].cells[x].selectCell()
+                    if (mainBoard.rows[y].cells[x].terrain == .Grass) ||
+                       (mainBoard.rows[y].cells[x].terrain == .Woods) ||
+                       (mainBoard.rows[y].cells[x].terrain == .Desert)
+                    {
+                        mainBoard.clearHighlight()
+                        mainBoard.rows[y].cells[x].selectCell()
+
+                    }
                 }
 
             }

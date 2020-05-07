@@ -70,15 +70,15 @@ class HexView: NSView {
         let centerY = self.frame.height / 2
         let lineLength = centerY
 
-        let offsetX = (lineLength * sin(CGFloat.pi / 3)) - 1
+        let offsetX = (lineLength * sin(CGFloat.pi / 3))
         let offsetY = centerY / 2
 
         let path = HexagonPath()
 
-        path.move(to: NSPoint(x: centerX, y: 1))
+        path.move(to: NSPoint(x: centerX, y: 0))
         path.line(to: NSPoint(x: centerX + offsetX, y: offsetY))
         path.line(to: NSPoint(x: centerX + offsetX, y: centerY + offsetY))
-        path.line(to: NSPoint(x: centerX, y: self.frame.height-1))
+        path.line(to: NSPoint(x: centerX, y: self.frame.height))
         path.line(to: NSPoint(x: centerX - offsetX, y: centerY + offsetY))
         path.line(to: NSPoint(x: centerX - offsetX, y: offsetY))
 
