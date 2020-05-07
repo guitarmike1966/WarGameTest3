@@ -8,21 +8,34 @@
 
 import Cocoa
 
-let MaxRows = 10
-let MaxCols = 15
-let CellHeight: CGFloat = 100
+let MaxRows = 12
+let MaxCols = 18
+let CellHeight: CGFloat = 90
 let CellWidth: CGFloat = CellHeight * 0.865
 let Padding: CGFloat = 20
 
 let SelectColor = NSColor.white
 let unSelectColor = NSColor.black
 
+let BoardInit: [[GameBoardCellTerrain]] = [ [ .Grass, .Grass, .Grass, .Grass, .Grass, .Grass,    .Woods,    .Woods,    .Woods,    .Woods,    .Woods,    .Grass ],
+                                            [ .Grass, .Grass, .Grass, .Grass, .Grass, .Grass,    .Woods,    .Woods,    .Woods,    .Woods,    .Woods,    .Grass ],
+                                            [ .Grass, .Grass, .Grass, .Grass, .Grass, .Grass,    .Woods,    .Woods,    .Woods,    .Mountain, .Mountain, .Grass ],
+                                            [ .Grass, .Grass, .Grass, .Grass, .Grass, .Grass,    .Woods,    .Woods,    .Mountain, .Mountain, .Grass,    .Grass ],
+                                            [ .Grass, .Grass, .Grass, .Grass, .Grass, .Grass,    .Grass,    .Woods,    .Mountain, .Mountain, .Grass,    .Grass ],
+                                            [ .Grass, .Grass, .Grass, .Grass, .Grass, .Grass,    .Grass,    .Grass,    .Mountain, .Desert,   .Desert,   .Grass ],
+                                            [ .Grass, .Grass, .Grass, .Grass, .Grass, .Grass,    .Grass,    .Mountain, .Mountain,  .Desert,   .Grass,    .Grass ],
+                                            [ .Grass, .Grass, .Grass, .Grass, .Grass, .Grass,    .Mountain, .Desert,   .Desert,   .Desert,   .Grass,    .Grass ],
+                                            [ .Grass, .Grass, .Grass, .Grass, .Grass, .Mountain, .Mountain, .Grass,    .Desert,   .Desert,   .Grass,    .Grass ],
+                                            [ .Grass, .Woods, .Woods, .Grass, .Grass, .Mountain, .Mountain, .Grass,    .Grass,    .Woods,    .Woods,    .Grass ],
+                                            [ .Grass, .Grass, .Woods, .Woods, .Grass, .Mountain, .Grass,    .Grass,    .Woods,    .Woods,    .Woods,    .Grass ]
+                                          ]
+
 
 class ViewController: NSViewController {
 
     @IBOutlet weak var BoardView: NSView!
 
-    var mainBoard = GameBoard()
+    var mainBoard = GameBoard(initialBoard: BoardInit)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +49,7 @@ class ViewController: NSViewController {
         BoardView.layer?.borderWidth = 1
         BoardView.layer?.borderColor = .black
 
-        mainBoard = GameBoard()
+        // mainBoard = GameBoard(initialBoard: BoardInit)
 
         for y in 0..<MaxRows {
             for x in 0..<MaxCols {

@@ -14,7 +14,8 @@
 		D9B9FAA424626EF100B068DC /* WarGameTest3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B9FAA324626EF100B068DC /* WarGameTest3Tests.swift */; };
 		D9B9FAAF24626EF100B068DC /* WarGameTest3UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B9FAAE24626EF100B068DC /* WarGameTest3UITests.swift */; };
 		D9B9FABD24626F8400B068DC /* HexView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B9FABC24626F8400B068DC /* HexView.swift */; };
-		D9B9FABF2462701400B068DC /* GameClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B9FABE2462701400B068DC /* GameClasses.swift */; };
+		D9B9FABF2462701400B068DC /* GameBoardClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B9FABE2462701400B068DC /* GameBoardClasses.swift */; };
+		D9C7703124637B8200828EF9 /* GameUnitClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C7703024637B8200828EF9 /* GameUnitClasses.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,7 +50,8 @@
 		D9B9FAAE24626EF100B068DC /* WarGameTest3UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarGameTest3UITests.swift; sourceTree = "<group>"; };
 		D9B9FAB024626EF100B068DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D9B9FABC24626F8400B068DC /* HexView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexView.swift; sourceTree = "<group>"; };
-		D9B9FABE2462701400B068DC /* GameClasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameClasses.swift; sourceTree = "<group>"; };
+		D9B9FABE2462701400B068DC /* GameBoardClasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBoardClasses.swift; sourceTree = "<group>"; };
+		D9C7703024637B8200828EF9 /* GameUnitClasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameUnitClasses.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +105,8 @@
 				D9B9FA9024626EF000B068DC /* AppDelegate.swift */,
 				D9B9FA9224626EF000B068DC /* ViewController.swift */,
 				D9B9FABC24626F8400B068DC /* HexView.swift */,
-				D9B9FABE2462701400B068DC /* GameClasses.swift */,
+				D9B9FABE2462701400B068DC /* GameBoardClasses.swift */,
+				D9C7703024637B8200828EF9 /* GameUnitClasses.swift */,
 				D9B9FA9424626EF100B068DC /* Assets.xcassets */,
 				D9B9FA9624626EF100B068DC /* Main.storyboard */,
 				D9B9FA9924626EF100B068DC /* Info.plist */,
@@ -260,7 +263,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D9B9FABF2462701400B068DC /* GameClasses.swift in Sources */,
+				D9B9FABF2462701400B068DC /* GameBoardClasses.swift in Sources */,
+				D9C7703124637B8200828EF9 /* GameUnitClasses.swift in Sources */,
 				D9B9FABD24626F8400B068DC /* HexView.swift in Sources */,
 				D9B9FA9324626EF000B068DC /* ViewController.swift in Sources */,
 				D9B9FA9124626EF000B068DC /* AppDelegate.swift in Sources */,
