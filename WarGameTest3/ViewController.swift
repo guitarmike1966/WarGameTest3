@@ -9,7 +9,7 @@
 import Cocoa
 
 let MaxRows = 20
-let MaxCols = 24
+let MaxCols = 23
 let CellHeight: CGFloat = 60
 let CellWidth: CGFloat = CellHeight * 0.866
 let Padding: CGFloat = 20
@@ -17,18 +17,24 @@ let Padding: CGFloat = 20
 let SelectColor = NSColor.white
 let unSelectColor = NSColor.black
 
-let BoardInit: [[GameBoardCellTerrain]] = [ [ .Grass, .Grass, .Grass, .Grass, .Grass, .Grass,    .Woods,    .Woods,    .Woods,    .Woods,    .Woods,    .Grass ],
-                                            [ .Grass, .Grass, .Grass, .Grass, .Grass, .Grass,    .Woods,    .Woods,    .Woods,    .Woods,    .Woods,    .Grass ],
-                                            [ .Grass, .Grass, .Grass, .Grass, .Grass, .Grass,    .Woods,    .Woods,    .Woods,    .Mountain, .Mountain, .Grass ],
-                                            [ .Grass, .Grass, .Grass, .Grass, .Grass, .Grass,    .Woods,    .Woods,    .Mountain, .Mountain, .Grass,    .Grass ],
-                                            [ .Grass, .Grass, .Grass, .Grass, .Grass, .Grass,    .Grass,    .Woods,    .Mountain, .Mountain, .Grass,    .Grass ],
-                                            [ .Grass, .Grass, .Grass, .Grass, .Grass, .Grass,    .Grass,    .Grass,    .Mountain, .Desert,   .Desert,   .Grass ],
-                                            [ .Grass, .Grass, .Grass, .Grass, .Grass, .Grass,    .Grass,    .Mountain, .Mountain,  .Desert,   .Grass,    .Grass ],
-                                            [ .Grass, .Grass, .Grass, .Grass, .Grass, .Grass,    .Mountain, .Desert,   .Desert,   .Desert,   .Grass,    .Grass ],
-                                            [ .Grass, .Grass, .Grass, .Grass, .Grass, .Mountain, .Mountain, .Grass,    .Desert,   .Desert,   .Grass,    .Grass ],
-                                            [ .Grass, .Woods, .Woods, .Grass, .Grass, .Mountain, .Mountain, .Grass,    .Grass,    .Woods,    .Woods,    .Grass ],
-                                            [ .Grass, .Grass, .Woods, .Woods, .Grass, .Mountain, .Grass,    .Grass,    .Woods,    .Woods,    .Woods,    .Grass ]
-                                          ]
+let BoardInit: [[GameBoardCellTerrain]] = [
+    [ .Water, .Water, .Water, .Grass, .Grass, .Grass, .Grass,    .Woods,    .Woods,    .Woods,    .Woods,    .Woods,    .Grass, .Grass, .Grass, .Grass, .Water, .Water, .Water, .Water, .Water, .Water, .Water ],
+    [ .Water, .Water, .Water, .Water, .Grass, .Grass, .Grass,    .Woods,    .Woods,    .Woods,    .Woods,    .Woods,    .Grass, .Grass, .Grass, .Grass, .Water, .Water, .Water, .Water, .Water, .Water, .Water ],
+    [ .Water, .Water, .Water, .Water, .Grass, .Grass, .Grass,    .Woods,    .Woods,    .Woods,    .Mountain, .Mountain, .Grass, .Grass, .Grass, .Grass, .Water, .Water, .Water, .Water, .Water, .Water, .Water ],
+    [ .Water, .Water, .Water, .Grass, .Grass, .Grass, .Grass,    .Woods,    .Woods,    .Mountain, .Mountain, .Grass,    .Grass, .Grass, .Grass, .Grass, .Water, .Water, .Water, .Water, .Grass, .Water, .Water ],
+    [ .Water, .Water, .Grass, .Grass, .Grass, .Grass, .Grass,    .Grass,    .Woods,    .Mountain, .Mountain, .Grass,    .Grass, .Grass, .Grass, .Grass, .Water, .Water, .Water, .Grass, .Grass, .Grass, .Water ],
+    [ .Water, .Water, .Grass, .Grass, .Grass, .Grass, .Grass,    .Grass,    .Grass,    .Mountain, .Desert,   .Desert,   .Grass, .Grass, .Grass, .Grass, .Grass, .Water, .Water, .Grass, .Grass, .Water, .Water ],
+    [ .Water, .Water, .Water, .Grass, .Grass, .Grass, .Grass,    .Grass,    .Mountain, .Mountain, .Desert,   .Grass,    .Grass, .Grass, .Grass, .Grass, .Grass, .Water, .Water, .Grass, .Grass, .Water, .Water ],
+    [ .Water, .Water, .Water, .Grass, .Grass, .Grass, .Grass,    .Mountain, .Desert,   .Desert,   .Desert,   .Grass,    .Grass, .Grass, .Grass, .Grass, .Grass, .Water, .Water, .Water, .Water, .Water, .Water ],
+    [ .Water, .Water, .Water, .Grass, .Grass, .Grass, .Mountain, .Mountain, .Grass,    .Desert,   .Desert,   .Grass,    .Grass, .Grass, .Grass, .Grass, .Grass, .Water, .Water, .Water, .Water, .Water, .Water ],
+    [ .Water, .Water, .Woods, .Woods, .Grass, .Grass, .Mountain, .Mountain, .Grass,    .Grass,    .Woods,    .Woods,    .Grass, .Grass, .Grass, .Grass, .Grass, .Water, .Water, .Water, .Water, .Water, .Water ],
+    [ .Water, .Water, .Grass, .Woods, .Woods, .Grass, .Mountain, .Grass,    .Grass,    .Woods,    .Woods,    .Woods,    .Grass, .Grass, .Grass, .Grass, .Grass, .Water, .Water, .Water, .Water, .Water, .Water ],
+    [ .Water, .Water, .Grass, .Woods, .Woods, .Grass, .Mountain, .Grass,    .Grass,    .Woods,    .Woods,    .Woods,    .Grass, .Grass, .Grass, .Grass, .Water, .Water, .Water, .Water, .Water, .Water, .Water ],
+    [ .Water, .Water, .Grass, .Woods, .Woods, .Grass, .Mountain, .Grass,    .Grass,    .Woods,    .Woods,    .Woods,    .Grass, .Grass, .Grass, .Grass, .Water, .Water, .Water, .Water, .Water, .Water, .Water ],
+    [ .Water, .Water, .Grass, .Woods, .Woods, .Grass, .Mountain, .Grass,    .Grass,    .Woods,    .Woods,    .Woods,    .Grass, .Grass, .Grass, .Grass, .Water, .Water, .Water, .Water, .Water, .Water, .Water ],
+    [ .Water, .Water, .Grass, .Woods, .Woods, .Grass, .Mountain, .Grass,    .Grass,    .Woods,    .Woods,    .Woods,    .Grass, .Grass, .Grass, .Grass, .Water, .Water, .Water, .Water, .Water, .Water, .Water ],
+    [ .Water, .Water, .Grass, .Woods, .Woods, .Grass, .Mountain, .Grass,    .Grass,    .Woods,    .Woods,    .Woods,    .Grass, .Grass, .Grass, .Grass, .Water, .Water, .Water, .Water, .Water, .Water, .Water ]
+]
 
 
 class ViewController: NSViewController {
@@ -99,13 +105,9 @@ class ViewController: NSViewController {
                     mainBoard.rows[y].cells[x].deselectCell()
                 }
                 else {
-                    if (mainBoard.rows[y].cells[x].terrain == .Grass) ||
-                       (mainBoard.rows[y].cells[x].terrain == .Woods) ||
-                       (mainBoard.rows[y].cells[x].terrain == .Desert)
-                    {
+                    if mainBoard.rows[y].cells[x].canSelect {
                         mainBoard.clearHighlight()
                         mainBoard.rows[y].cells[x].selectCell()
-
                     }
                 }
 

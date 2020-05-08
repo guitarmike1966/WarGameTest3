@@ -28,18 +28,19 @@ extension NSColor {
                   alpha: alpha)
     }
 
-    static let darkGreen = NSColor(hex: "004000")
+    static let darkGreen = NSColor(hex: "005000")
     static let lightGreen = NSColor(hex: "40FF40")
+    static let darkBlue = NSColor(hex: "000090")
 }
 
 
 enum GameBoardCellTerrain {
     case Woods
     case Grass
-    case Road
     case Desert
     case Tundra
     case Mountain
+    case Water
     case Other
 
     func toColor() -> NSColor {
@@ -48,14 +49,14 @@ enum GameBoardCellTerrain {
             return NSColor.lightGreen
         case .Woods:
             return NSColor.darkGreen
-        case .Road:
-            return NSColor.lightGray
         case .Desert:
             return NSColor.yellow
         case .Tundra:
             return NSColor.white
         case .Mountain:
             return NSColor.darkGray
+        case .Water:
+            return NSColor.darkBlue
         default:
             return NSColor.blue
         }
@@ -67,6 +68,24 @@ class GameBoardCell {
     var terrain: GameBoardCellTerrain
     var selected: Bool
     var view: HexView
+    
+    var canSelect: Bool {
+        get {
+            switch self.terrain {
+            case .Grass:
+                    return true
+            case .Woods:
+                    return true
+            case .Desert:
+                    return true
+            case .Water:
+                    return true
+            default:
+                    return false
+            }
+        }
+
+    }
 
     init(terrain: GameBoardCellTerrain) {
         self.terrain = terrain
@@ -100,6 +119,23 @@ class GameBoardCell {
         self.view.selected = false
         self.view.display()
     }
+    
+//    func canSelectCell() -> Bool {
+//        switch self.terrain {
+//        case .Grass
+//            return true
+//        case .Woods
+//            return true
+//        case .Desert
+//            return true
+//        case .Road
+//            return true
+//        case .Water
+//            return true
+//        default:
+//            return false
+//        }
+//    }
 
 }
 
